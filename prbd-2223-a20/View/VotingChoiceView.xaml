@@ -1,0 +1,84 @@
+﻿<f:UserControlBase x:Class="MyPoll.View.VotingChoiceView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:vm="clr-namespace:MyPoll.ViewModel"
+             xmlns:m="clr-namespace:MyPoll.Model"
+             xmlns:fa="http://schemas.fontawesome.com/icons/fonts"
+             xmlns:f="clr-namespace:PRBD_Framework;assembly=PRBD_Framework"
+             xmlns:c="clr-namespace:CalcBinding;assembly=CalcBinding"
+             xmlns:media="clr-namespace:System.Windows.Media;assembly=PresentationCore"
+             mc:Ignorable="d"
+             d:DataContext="{d:DesignInstance Type=vm:VotingChoiceViewModel, IsDesignTimeCreatable=True}"
+             d:DesignHeight="450" d:DesignWidth="800"
+             x:Name="uc">
+
+    <Border BorderBrush="Black" BorderThickness="1,0,0,1"
+        SnapsToDevicePixels="True" Width="100" MinHeight="50">
+        <StackPanel VerticalAlignment="Center">
+            <!-- If not in edit mode -->
+            <fa:FontAwesome Icon="{Binding VotedIcon}"
+                        Foreground="{Binding VotedColor}"
+                        FontSize="25"
+                        Visibility="{c:Binding !EditMode}" />
+
+            <!-- If in edit mode -->
+            <Grid Visibility="{c:Binding EditMode}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="32" />
+                    <ColumnDefinition Width="32" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="32" />
+                    <RowDefinition Height="32" />
+                </Grid.RowDefinitions>
+
+                <!-- Yes Button -->
+                <Button Grid.Column="0" Grid.Row="0" Padding="2" BorderBrush="Transparent"
+                    Background="Transparent" 
+                    Command="{Binding ChangeVote}"
+                    CommandParameter="{x:Static m:VoteType.Yes}">
+                    <fa:FontAwesome Icon="Solid_Check"
+                                Foreground="{c:Binding 'IsVotedYes ? media:Brushes.Green : media:Brushes.LightGray'}"
+                                FontSize="25"
+                                ToolTip="Yes"/>
+                </Button>
+
+                <!-- Maybe Button -->
+                <Button Grid.Column="1" Grid.Row="0" Padding="2" BorderBrush="Transparent"
+                    Background="Transparent" 
+                    Command="{Binding ChangeVote}"
+                    CommandParameter="{x:Static m:VoteType.Maybe}">
+                    <fa:FontAwesome Icon="Solid_CircleQuestion"
+                                Foreground="{c:Binding 'IsVotedMaybe ? media:Brushes.Orange : media:Brushes.LightGray'}"
+                                FontSize="25"
+                                ToolTip="Maybe"/>
+                </Button>
+
+                <!-- No Button -->
+                <Button Grid.Column="0" Grid.Row="1" Padding="2" BorderBrush="Transparent"
+                    Background="Transparent" 
+                    Command="{Binding ChangeVote}"
+                    CommandParameter="{x:Static m:VoteType.No}">
+                    <fa:FontAwesome Icon="Solid_Xmark"
+                                Foreground="{c:Binding 'IsVotedNo ? media:Brushes.Red : media:Brushes.LightGray'}"
+                                FontSize="25"
+                                ToolTip="No"/>
+                </Button>
+                <!--Cancel Vote Button-->
+                <Button Grid.Column="1" Grid.Row="1" Padding="2" BorderBrush="Transparent"
+                    Background="Transparent" 
+                    Command="{Binding ChangeVote}"
+                    CommandParameter="{x:Static m:VoteType.NoVote}">
+                    <fa:FontAwesome 
+                                Foreground="{c:Binding 'IsVotedNoVote ? media:Brushes.Blue : media:Brushes.LightGray'}"
+                                FontSize="25"
+                                ToolTip="NoVote"/>
+                </Button>
+            </Grid>
+        </StackPanel>
+    </Border>
+
+
+</f:UserControlBase>
