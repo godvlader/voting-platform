@@ -46,3 +46,20 @@ The application manages users with unique identifiers, names, email addresses, a
 ## Getting Started
 Clone and run.
 
+![login](https://github.com/godvlader/voting-platform/assets/79583000/88398daf-76e6-4721-8356-2e4bdd1342fa)
+
+![pol](https://github.com/godvlader/voting-platform/assets/79583000/c9d2cd3b-5ebe-4542-8f05-7ff7ca862082)
+
+![votes](https://github.com/godvlader/voting-platform/assets/79583000/cbca3c09-2b31-4bb4-b2bd-25529509103d)
+
+![creator](https://github.com/godvlader/voting-platform/assets/79583000/0fb82bb1-a43d-43cf-aace-c580e806525a)
+
+![edit](https://github.com/godvlader/voting-platform/assets/79583000/0971f7ec-215d-4326-ba38-e4c4313f55dc)
+
+![new](https://github.com/godvlader/voting-platform/assets/79583000/d034fa6d-dc09-4bc1-938a-8e18ba6b203b)
+
+
+
+
+
+
